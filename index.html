@@ -38,7 +38,6 @@
     <!-- === CSS LINK === -->
     <link rel="stylesheet" href="./assets/css/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
     <script>
       tailwind.config = {
         theme: {
@@ -88,7 +87,7 @@
   </head>
   <body>
     <section class="px-4 z-10 bg-dark-black relative pt-4 max-xl:pb-24 max-lg:pb-16 max-sm:pb-10 xl:h-[1917px]">
-           <video class="absolute top-0 left-0 w-full h-full object-cover opacity-30 -z-10" autoplay loop muted playsinline>
+           <video id="backgroundVideo" class="absolute top-0 left-0 w-full h-full object-cover opacity-30 -z-10" autoplay loop muted playsinline>
               <source src="/assets/video/bg-video.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
@@ -139,7 +138,7 @@ Watch the Video Below to Discover How</p>
                         <img class="absolute top-1/2 left-1/2 cursor-pointer z-10 transform -translate-x-1/2 -translate-y-1/2 pause-icon"
                             src="./assets/images/svg/youtube.svg" alt="video-play-icon"
                             data-video-id="melaniVideo">
-                        <video id="melaniVideo" class="rounded-lg relative z-1 lg:w-[363px] w-full object-cover h-[214px]"
+                        <video  id="melaniVideo" class="rounded-lg relative z-1 lg:w-[363px] w-full object-cover h-[214px]"
                             poster="./assets/images/webp/melani.webp" src="./assets/video/buildings.mp4"></video>
                     </div>
                     <p

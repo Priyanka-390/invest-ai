@@ -68,3 +68,17 @@ videoElements.forEach(videoElement => {
     });
 });
 
+// Get all video elements except the background video
+const videos = document.querySelectorAll("video:not(#backgroundVideo)");
+videos.forEach((video) => {
+  video.addEventListener("play", function() {
+    videos.forEach((otherVideo) => {
+      if (otherVideo !== video) {
+        otherVideo.pause();
+      }
+    });
+  });
+});
+// The background video should continue playing independently
+const backgroundVideo = document.getElementById("backgroundVideo");
+backgroundVideo.play();
