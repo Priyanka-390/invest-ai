@@ -23,23 +23,48 @@ function setupVideoControls(videoId, playIconId) {
 
 setupVideoControls("aiVideo", "playIcon");
 
+const playIcons = document.querySelectorAll('.pause-icon');  // Select all play icons
+const videoElements = document.querySelectorAll('video');    // Select all video elements
+let currentPlayingVideo = null;  // Track the currently playing video
 
-document.addEventListener("DOMContentLoaded", function () {
-    const video = document.getElementById("aiVideo");
-    const playVideo = document.getElementById("playvedio");
-    const videoContainer = document.getElementById("videoContainer");
-    videoContainer.addEventListener("click", function () {
-        video.play();
-        playVideo.style.display = "none";
-    });
-    video.addEventListener("play", function () {
-        playVideo.style.display = "none"; 
-    });
+function playPauseVideo(videoElement, playIcon) {
+    // If another video is currently playing, pause and reset it
+    if (currentPlayingVideo && currentPlayingVideo !== videoElement) {
+        currentPlayingVideo.pause();
+        currentPlayingVideo.currentTime = 0;
+        currentPlayingVideo.removeAttribute('controls');
+        currentPlayingVideo.parentElement.querySelector('.pause-icon').style.display = 'block';
+    }
 
-    video.addEventListener("pause", function () {
-        playVideo.style.display = "block";
-    });
-    video.addEventListener("ended", function () {
-        playVideo.style.display = "block";
+    // Play the current video or pause it if it's already playing
+    if (videoElement.paused) {
+        videoElement.play();  // Play the video
+        videoElement.setAttribute('controls', 'true');  // Show video controls
+        playIcon.style.display = 'none';  // Hide the play icon
+        currentPlayingVideo = videoElement;  // Set this video as the currently playing one
+    } else {
+        videoElement.pause();  // Pause the video
+        videoElement.removeAttribute('controls');  // Hide video controls
+        playIcon.style.display = 'block';  // Show the play icon
+        currentPlayingVideo = null;  // No video is currently playing
+    }
+}
+
+// Add event listener to each play icon
+playIcons.forEach(playIcon => {
+    playIcon.addEventListener('click', function (e) {
+        e.stopPropagation();  // Prevent the video click event from triggering
+        const videoId = this.getAttribute('data-video-id');  // Get the associated video ID
+        const videoElement = document.getElementById(videoId);  // Find the video element
+        playPauseVideo(videoElement, this);  // Play/pause the video
     });
 });
+
+// Add event listener to each video element
+videoElements.forEach(videoElement => {
+    videoElement.addEventListener('click', function () {
+        const playIcon = this.parentElement.querySelector('.pause-icon');  // Find the associated play icon
+        playPauseVideo(this, playIcon);  // Play/pause the video
+    });
+});
+
