@@ -94,8 +94,8 @@ var swiper = new Swiper(".mySwiper", {
   // centeredSlides: true,
   breakpoints: {
     1920: {
-      slidesPerView: 4.7,
-      spaceBetween: 28,
+      slidesPerView: 4.6,
+      spaceBetween: 32,
     },
    
      1320: {
