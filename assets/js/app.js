@@ -89,9 +89,12 @@ var swiper = new Swiper(".mySwiper", {
   slideToScroll: 1,
   loop: true,
   autoplay: {
-    delay: 5000,
+    delay: 3000,
   },
-  // centeredSlides: true,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+      },
   breakpoints: {
     1920: {
       slidesPerView: 4.6,
