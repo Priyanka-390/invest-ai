@@ -82,27 +82,40 @@ videos.forEach((video) => {
   });
 });
 
+// slider
 var swiper = new Swiper(".mySwiper", {
   slidesPerView: 1,
   spaceBetween: 10,
- loop:true,
-  centeredSlides: true,
-   breakpoints: {
-          1920: {
-            slidesPerView: 4.7,
-            spaceBetween: 36,
-     },
-      1044: {
-            slidesPerView: 2.2,
-            spaceBetween: 36,
-          },
-          768: {
-            slidesPerView: 2,
-            spaceBetween: 10,
-          },
-          1024: {
-            slidesPerView: 3,
-            spaceBetween: 20,
-          },
-  }
+  slideToScroll: 1,
+  loop: true,
+  autoplay: {
+    delay: 5000,
+  },
+  // centeredSlides: true,
+  breakpoints: {
+    1920: {
+      slidesPerView: 4.7,
+      spaceBetween: 36,
+    },
+     1320: {
+      slidesPerView: 3.2,
+      spaceBetween: 20,
+    },
+    1044: {
+      slidesPerView: 2.3,
+      spaceBetween: 16,
+    },
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 10,
+    },
+    1280: {
+       slidesPerView: 2.3,
+      spaceBetween: 12,
+    },
+    900: {
+      slidesPerView: 2,
+      spaceBetween: 12,
+    },
+  },
 });
