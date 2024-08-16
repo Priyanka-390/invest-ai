@@ -127,4 +127,97 @@ var swiper = new Swiper(".mySwiper", {
     },
   },
 });
+function validateForm(event) {
+    event.preventDefault();
+    
+    // Get form values
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    
+    // Clear previous error messages
+    clearErrors();
+    
+    let isValid = true;
+    
+    // Validate first name
+    if (firstName === "") {
+        document.getElementById('firstNameError').classList.remove('hidden');
+        isValid = false;
+    }
+    
+    // Validate last name
+    if (lastName === "") {
+        document.getElementById('lastNameError').classList.remove('hidden');
+        isValid = false;
+    }
+    
+    // Validate email
+    if (!validateEmail(email)) {
+        document.getElementById('emailError').classList.remove('hidden');
+        isValid = false;
+    }
+    
+    // Validate phone number
+    if (!validatePhone(phone)) {
+        document.getElementById('phoneError').classList.remove('hidden');
+        isValid = false;
+    }
+    
+    if (isValid) {
+        // If valid, show success popup
+        document.getElementById('successPopup').classList.remove('hidden');
+    }
+    
+    return false;
+}
 
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
+function validatePhone(phone) {
+    const re = /^\d{10}$/;
+    return re.test(phone);
+}
+
+function clearErrors() {
+    document.getElementById('firstNameError').classList.add('hidden');
+    document.getElementById('lastNameError').classList.add('hidden');
+    document.getElementById('emailError').classList.add('hidden');
+    document.getElementById('phoneError').classList.add('hidden');
+}
+
+function closePopup() {
+    document.getElementById('successPopup').classList.add('hidden');
+    document.getElementById('signupForm').reset(); // Reset form after successful submission
+}
+
+ let totalSeconds = 1 * 3600 + 30 * 60; // 1 hour and 30 minutes
+
+        function startTimer() {
+            const hoursElement = document.getElementById('hours');
+            const minutesElement = document.getElementById('minutes');
+            const secondsElement = document.getElementById('seconds');
+
+            const interval = setInterval(() => {
+                const hours = Math.floor(totalSeconds / 3600);
+                const minutes = Math.floor((totalSeconds % 3600) / 60);
+                const seconds = totalSeconds % 60;
+
+                hoursElement.textContent = String(hours).padStart(2, '0');
+                minutesElement.textContent = String(minutes).padStart(2, '0');
+                secondsElement.textContent = String(seconds).padStart(2, '0');
+
+                if (totalSeconds > 0) {
+                    totalSeconds--;
+                } else {
+                    clearInterval(interval);
+                    alert("Time's up!");
+                }
+            }, 1000);
+        }
+
+        startTimer();
