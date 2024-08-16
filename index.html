@@ -92,6 +92,7 @@
                 "light-black":"#29333A",
                 "heading-black":"#020507",
                 "light-shade":"#E9E9E9",
+                "accordian-black":"#000C03"
             },
             boxShadow:{
                 button: "0px 4px 25px 0px #00A4FF",
@@ -403,15 +404,118 @@ AI Winner!</h2>
   </div>
 
   <!-- === ACCORDIAN === -->
-   <!-- <section class="pt-32">
+   <section class="lg:pt-32 lg:pb-[155px] md:py-24 sm:py-16 py-12">
     <div class="container max-w-[1000px] px-3 mx-auto">
-<h2 class="text-5xl text-black font-bold font-oxygen text-center !leading-130 mb-12">Frequently Asked Questions</h2>
+<h2 class=" lg:text-5xl md:text-4xl text-3xl text-black font-bold font-oxygen text-center !leading-130 sm:mb-8 mb-5 md:mb-12">Frequently Asked Questions</h2>
+
+  <div class="flex max-w-[999px] mx-auto sm:gap-[25px] gap-5 flex-col">
+                    <div
+                        class="accordion-item rounded-[20px] flex shadow-accordion-shadow ps-0 pe-4 sm:px-4 md:px-5  pt-4 md:pt-5 pb-2 md:pb-3.5 border border-black border-opacity-10  rounded-20 flex-col">
+                        <div class="flex items-center cursor-pointer justify-between w-full" data-target="panel-1">
+                            <h3
+                                class="font-oxygen font-bold text-accordion-black text-sm sm:text-lg md:text-xl !leading-130 ms-4">
+                                1. How to get started?</h3>
+                            <img class="block toggle-icon plus bg-transparent cursor-pointer sm:me-1 sm:max-[60px] max-w-[40px]  md:me-2"
+                                src="./assets/images/svg/plus-icon.svg" alt="plus">
+                            <img class="minus cursor-pointer md:me-2  sm:me-1 sm:max-[60px] max-w-[40px]  bg-transparent "
+                                src="./assets/images/svg/minus-icon.svg" alt="minus">
+                        </div>
+                        <div id="panel-1"
+                            class="panel pt-2 text-black text-opacity-70 font-normal sm:pt-3 font-roboto text-sm md:text-base max-w-[868px] ms-7">
+                            To get started, simply sign up in the form below. Within a few minutes, you'll receive a
+                            call from your dedicated account manager who will guide you through setting up the AI system
+                            in less than 5 minutes so you can relax and watch your investments grow effortlessly. Be
+                            sure to have your phone nearby and be available within the first 15 minutes after
+                            registration to ensure you don't miss the call.
+                        </div>
+                    </div>
+                    <div
+                        class="accordion-item rounded-[20px] flex shadow-accordion-shadow ps-0 pe-4 sm:px-4 md:px-5  pt-4 md:pt-5 pb-2 md:pb-3.5 rounded-20 flex-col border border-black border-opacity-10">
+                        <div class="flex w-full cursor-pointer items-center justify-between" data-target="panel-2">
+                            <h3
+                                class="font-oxygen font-bold text-accordion-black text-sm sm:text-lg md:text-xl !leading-130 ms-4">
+                                2. Is Arbitrage Legal?</h3>
+                            <img class="block  toggle-icon plus bg-transparent cursor-pointer sm:me-1 sm:max-[60px] max-w-[40px]  md:me-2"
+                                src="./assets/images/svg/plus-icon.svg" alt="plus">
+                            <img class="minus cursor-pointer md:me-2  sm:me-1 sm:max-[60px] max-w-[40px]  bg-transparent "
+                                src="./assets/images/svg/minus-icon.svg" alt="minus">
+                        </div>
+                        <div id="panel-2"
+                            class="panel pt-2 text-black text-opacity-70 font-normal sm:pt-3 font-roboto text-sm md:text-base max-w-[868px] ms-7">
+                            To get started, simply sign up in the form below. Within a few minutes, you'll receive a
+                            call from your dedicated account manager who will guide you through setting up the AI system
+                            in less than 5 minutes so you can relax and watch your investments grow effortlessly. Be
+                            sure to have your phone nearby and be available within the first 15 minutes after
+                            registration to ensure you don't miss the call.
+                        </div>
+                    </div>
+                    <div
+                        class="accordion-item rounded-[20px] flex shadow-accordion-shadow ps-0 pe-4 sm:px-4 md:px-5  pt-4 md:pt-5 pb-2 md:pb-3.5 rounded-20 border border-black border-opacity-10 flex-col">
+                        <div class="flex items-center cursor-pointer w-full justify-between" data-target="panel-3">
+                            <h3
+                                class="font-oxygen font-bold text-accordion-black text-sm sm:text-lg md:text-xl !leading-130 ms-4">
+                                3. Do I need trading experience?</h3>
+                            <img class="block  toggle-icon plus bg-transparent cursor-pointer sm:me-1 sm:max-[60px] max-w-[40px]  md:me-2"
+                                src="./assets/images/svg/plus-icon.svg" alt="plus">
+                            <img class="minus cursor-pointer md:me-2  sm:me-1 sm:max-[60px] max-w-[40px]  bg-transparent "
+                                src="./assets/images/svg/minus-icon.svg" alt="minus">
+                        </div>
+                        <div id="panel-3"
+                            class="panel pt-2 text-black text-opacity-70 font-normal sm:pt-3 font-roboto text-sm md:text-base max-w-[868px] ms-7">
+                            To get started, simply sign up in the form below. Within a few minutes, you'll receive a
+                            call from your dedicated account manager who will guide you through setting up the AI system
+                            in less than 5 minutes so you can relax and watch your investments grow effortlessly. Be
+                            sure to have your phone nearby and be available within the first 15 minutes after
+                            registration to ensure you don't miss the call.
+                        </div>
+                    </div>
+                    <div
+                        class="accordion-item rounded-[20px] flex shadow-accordion-shadow ps-0 pe-4 sm:px-4 md:px-5  pt-4 md:pt-5 pb-2 md:pb-3.5 rounded-20 border border-black border-opacity-10 flex-col">
+                        <div class="flex items-center cursor-pointer w-full justify-between" data-target="panel-4">
+                            <h3
+                                class="font-oxygen font-bold text-accordion-black text-sm sm:text-lg md:text-xl !leading-130 ms-4">
+                                4. Can You Lose Money in Arbitrage?</h3>
+                            <img class="block  toggle-icon plus bg-transparent cursor-pointer sm:me-1 sm:max-[60px] max-w-[40px]  md:me-2"
+                                src="./assets/images/svg/plus-icon.svg" alt="plus">
+                            <img class="minus cursor-pointer md:me-2  sm:me-1 sm:max-[60px] max-w-[40px]  bg-transparent "
+                                src="./assets/images/svg/minus-icon.svg" alt="minus">
+                        </div>
+                        <div id="panel-4"
+                            class="panel pt-2 text-black text-opacity-70 font-normal sm:pt-3 font-roboto text-sm md:text-base max-w-[868px] ms-7">
+                            To get started, simply sign up in the form below. Within a few minutes, you'll receive a
+                            call from your dedicated account manager who will guide you through setting up the AI system
+                            in less than 5 minutes so you can relax and watch your investments grow effortlessly. Be
+                            sure to have your phone nearby and be available within the first 15 minutes after
+                            registration to ensure you don't miss the call.
+                        </div>
+                    </div>
+                    <div
+                        class="accordion-item rounded-[20px] flex shadow-accordion-shadow ps-0 pe-4 sm:px-4 md:px-5  pt-4 md:pt-5 pb-2 md:pb-3.5 rounded-20 border border-black border-opacity-10 flex-col">
+                        <div class="flex cursor-pointer items-center w-full justify-between" data-target="panel-5">
+                            <h3
+                                class="font-oxygen font-bold text-accordion-black text-sm sm:text-lg md:text-xl !leading-130 ms-4">
+                                5. What Makes Arbitrage Low-Risk?</h3>
+                            <img class="block  toggle-icon plus bg-transparent cursor-pointer sm:me-1 sm:max-[60px] max-w-[40px] md:me-2"
+                                src="./assets/images/svg/plus-icon.svg" alt="plus">
+                            <img class="minus cursor-pointer md:me-2  sm:me-1 sm:max-[60px] max-w-[40px]  bg-transparent "
+                                src="./assets/images/svg/minus-icon.svg" alt="minus">
+                        </div>
+                        <div id="panel-5"
+                            class="panel pt-2 text-black text-opacity-70 font-normal sm:pt-3 font-roboto text-sm md:text-base max-w-[868px] ms-7">
+                            To get started, simply sign up in the form below. Within a few minutes, you'll receive a
+                            call from your dedicated account manager who will guide you through setting up the AI system
+                            in less than 5 minutes so you can relax and watch your investments grow effortlessly. Be
+                            sure to have your phone nearby and be available within the first 15 minutes after
+                            registration to ensure you don't miss the call.
+                        </div>
+                    </div>
+                </div>
 
     </div>
-   </section> -->
+   </section>
 
    <!-- === PROFITABLE STRATEGY === -->
-    <section class="relative lg:pt-32 bg-dark-black md:pt-24 sm:py-16 py-12 md:pb-20 z-10">
+    <section class="relative lg:pt-32 bg-dark-black md:pt-24 sm:py-16 py-14 md:pb-20 z-10">
        <video id="backgroundVideo" class="absolute top-0 left-0 w-full h-full pointer-events-none object-cover opacity-25 -z-10" controls="hidden" autoplay loop muted playsinline>
               <source src="/assets/video/hero-bg.mp4" type="video/mp4">
               Your browser does not support the video tag.
@@ -423,7 +527,7 @@ World's Most Profitable Strategy?</h2>
             <div class="bg-white lg::pt-[105px] md:pt-20 sm:mt-16 mt-10 rounded-3xl xl:pb-[93px] lg:p-16 md:p-16 sm:p-14 p-6 xl:px-[88px] justify-between">
               <div class="flex max-lg:flex-wrap justify-between">
                 <div class="lg:max-w-[553px]">
-                  <p class="lg:text-custom-5xl md:text-4xl sm:text-3xl text-2xl font-oxygen mb-2.5 max-lg:text-center font-bold text-black !leading-130">Thanks to AI Arbitrage, more than 120,000 Canadians have already been able to afford:</p>
+                  <p class="lg:text-custom-5xl md:text-4xl sm:text-3xl text-2xl font-oxygen mb-2.5 max-lg:text-center font-bold xl:mt-2 text-black !leading-130">Thanks to AI Arbitrage, more than 120,000 Canadians have already been able to afford:</p>
                   <div class="flex flex-col max-lg:justify-center max-lg:max-w-[500px] max-lg:mx-auto">
                     <div class="flex items-center gap-1 sm:gap-2 mb-1 md:mb-2">
                       <img src="./assets/images/svg/blue-tick-symbol.svg" class="max-sm:size-3" alt="blue-tick-symbol">
@@ -521,6 +625,7 @@ World's Most Profitable Strategy?</h2>
                 </div>
               </div>
             </div>
+             <p class="md:mt-[72px] sm:mt-10 mt-5 font-oxygen !leading-142 blue-text-shadow font-bold lg:text-5xl text-center text-white md:text-4xl text-3xl" >Get Access For Free!</p>
 </div>
     </section>
 
@@ -677,10 +782,10 @@ World's Most Profitable Strategy?</h2>
    </section>
 
   <!-- === FOOTER === -->
-<footer class="bg-light-black pt-9">
+<footer class="bg-light-black pt-6 max-lg:pt-9">
 <div class="container max-w-[1440px] px-3 mx-auto">
-<div class="flex justify-center mb-2 sm:mb-3"><a href="#"><img src="./assets/images/svg/footer-logo.svg" class="max-sm:max-w-[66px]" alt="footer-logo"></a></div>
-<h3 class="font-oxanium font-semibold md:text-custom-xl text-xl white-text-shadow mb-3 text-center !leading-142 text-white ">AI Arbitrage Method Pro</h3>
+<div class="flex justify-center mb-1"><a href="#"><img src="./assets/images/svg/footer-logo.svg" class="max-sm:max-w-[66px]" alt="footer-logo"></a></div>
+<h3 class="font-oxanium font-semibold md:text-custom-xl text-xl uppercase white-text-shadow mb-3 text-center !leading-142 text-white ">AI Arbitrage Method Pro</h3>
 <p class="text-white text-opacity-80 font-oxygen font-semibold md:mb-6 mb-3 sm:text-base text-sm max-w-[261px] text-center mx-auto !leading-160">Empowering Your Financial Future with Intelligent Investments</p>
 <p class="font-oxygen font-bold md:text-xl text-lg text-white text-center sm:mb-4 mb-2 !leading-140">Disclaimer</p>
 <p class="text-base font-normal font-roboto lg:pb-12 md:pb-8 pb-6 text-white text-opacity-80 max-w-[1139px] mx-auto text-center">This website is not a news agency, information website, or blog. It is a webpage aimed at promotional publications that use the technique of storytelling to illustrate the scope of the services and products offered. Therefore, the story told on this page is an infomercial or advertisement for informational and functional purposes, for an understanding of the potential of what is proposed general, risk warning. Investing activities involve a high level of risk and may result in the total loss of the amount invested. For this reason, these activities may not be suitable for every type of investor. You should not invest money that you cannot afford to lose.</p>

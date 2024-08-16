@@ -82,7 +82,7 @@ videos.forEach((video) => {
   });
 });
 
-// slider
+// ================== SLIDER =================
 var swiper = new Swiper(".mySwiper", {
   slidesPerView: 1,
   spaceBetween: 10,
@@ -127,6 +127,8 @@ var swiper = new Swiper(".mySwiper", {
     },
   },
 });
+
+// ================= FORM VALIDATION =================
 function validateForm(event) {
     event.preventDefault();
     
@@ -172,31 +174,30 @@ function validateForm(event) {
     
     return false;
 }
-
 function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
 }
-
 function validatePhone(phone) {
     const re = /^\d{10}$/;
     return re.test(phone);
 }
-
 function clearErrors() {
     document.getElementById('firstNameError').classList.add('hidden');
     document.getElementById('lastNameError').classList.add('hidden');
     document.getElementById('emailError').classList.add('hidden');
     document.getElementById('phoneError').classList.add('hidden');
 }
-
 function closePopup() {
     document.getElementById('successPopup').classList.add('hidden');
     document.getElementById('signupForm').reset(); // Reset form after successful submission
 }
 
- let totalSeconds = 1 * 3600 + 30 * 60; // 1 hour and 30 minutes
+// ==================== CURRENT YEAR========================
+const currentYear = new Date().getFullYear();
 
+// ============ TIMER =================
+ let totalSeconds = 1 * 3600 + 30 * 60; 
         function startTimer() {
             const hoursElement = document.getElementById('hours');
             const minutesElement = document.getElementById('minutes');
@@ -220,4 +221,52 @@ function closePopup() {
             }, 1000);
         }
 
-        startTimer();
+startTimer();
+        
+  document.addEventListener('DOMContentLoaded', function () {
+            const accordionItems = document.querySelectorAll('.accordion-item');
+
+            accordionItems.forEach((item, index) => {
+                const header = item.querySelector('[data-target]');
+                const panel = item.querySelector('.panel');
+                const plusIcon = item.querySelector('.plus');
+                const minusIcon = item.querySelector('.minus');
+
+                // Open the first accordion by default
+                if (index === 0) {
+                    panel.classList.add('show');
+                    item.classList.add('open');
+                    plusIcon.style.display = 'none';
+                    minusIcon.style.display = 'block';
+                }
+
+                header.addEventListener('click', () => {
+                    const isOpen = panel.classList.contains('show');
+
+                    accordionItems.forEach(otherItem => {
+                        const otherPanel = otherItem.querySelector('.panel');
+                        const otherPlusIcon = otherItem.querySelector('.plus');
+                        const otherMinusIcon = otherItem.querySelector('.minus');
+
+                        if (otherPanel !== panel) {
+                            otherPanel.classList.remove('show');
+                            otherItem.classList.remove('open');
+                            otherPlusIcon.style.display = 'block';
+                            otherMinusIcon.style.display = 'none';
+                        }
+                    });
+
+                    if (isOpen) {
+                        panel.classList.remove('show');
+                        item.classList.remove('open');
+                        plusIcon.style.display = 'block';
+                        minusIcon.style.display = 'none';
+                    } else {
+                        panel.classList.add('show');
+                        item.classList.add('open');
+                        plusIcon.style.display = 'none';
+                        minusIcon.style.display = 'block';
+                    }
+                });
+            });
+        });
