@@ -129,69 +129,102 @@ var swiper = new Swiper(".mySwiper", {
 });
 
 // ================= FORM VALIDATION =================
-function validateForm(event) {
-    event.preventDefault();
+document.addEventListener('DOMContentLoaded', function () {
+    // Get form elements
+    const form = document.getElementById('signupForm');
+    const firstNameInput = document.getElementById('firstName');
+    const lastNameInput = document.getElementById('lastName');
+    const emailInput = document.getElementById('email');
+    const phoneInput = form.querySelector('input[type="number"]');
     
-    // Get form values
-    const firstName = document.getElementById('firstName').value.trim();
-    const lastName = document.getElementById('lastName').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const phone = document.getElementById('phone').value.trim();
+    // Get error message elements
+    const firstNameError = document.getElementById('firstNameError');
+    const lastNameError = document.getElementById('lastNameError');
+    const emailError = document.getElementById('emailError');
+    const phoneError = document.getElementById('phoneError');
     
-    // Clear previous error messages
-    clearErrors();
+    // Get the success popup and close button elements
+    const successPopup = document.getElementById('successPopup');
+    const closeBtn = successPopup.querySelector('.closeBtn');
+
+    // Add event listeners for real-time validation
+    firstNameInput.addEventListener('input', () => validateInput(firstNameInput, firstNameError, isValidName));
+    lastNameInput.addEventListener('input', () => validateInput(lastNameInput, lastNameError, isValidName));
+    emailInput.addEventListener('input', () => validateInput(emailInput, emailError, isValidEmail));
+    phoneInput.addEventListener('input', () => validateInput(phoneInput, phoneError, isValidPhone));
     
-    let isValid = true;
+    form.addEventListener('submit', function (event) {
+        let isValid = true;
+        
+        // Validate all inputs
+        if (!isValidName(firstNameInput.value)) {
+            firstNameError.classList.remove('hidden');
+            isValid = false;
+        }
+        
+        if (!isValidName(lastNameInput.value)) {
+            lastNameError.classList.remove('hidden');
+            isValid = false;
+        }
+        
+        if (!isValidEmail(emailInput.value)) {
+            emailError.classList.remove('hidden');
+            isValid = false;
+        }
+        
+        if (!isValidPhone(phoneInput.value)) {
+            phoneError.classList.remove('hidden');
+            isValid = false;
+        }
+        
+        // Prevent form submission if validation fails
+        if (!isValid) {
+            event.preventDefault();
+        } else {
+            // Form is valid, show success popup
+            showSuccessPopup();
+        }
+    });
     
-    // Validate first name
-    if (firstName === "") {
-        document.getElementById('firstNameError').classList.remove('hidden');
-        isValid = false;
+    function validateInput(inputElement, errorElement, validationFunction) {
+        if (validationFunction(inputElement.value)) {
+            errorElement.classList.add('hidden');
+        } else {
+            errorElement.classList.remove('hidden');
+        }
     }
     
-    // Validate last name
-    if (lastName === "") {
-        document.getElementById('lastNameError').classList.remove('hidden');
-        isValid = false;
+    function isValidName(name) {
+        return name.trim() !== '';
     }
     
-    // Validate email
-    if (!validateEmail(email)) {
-        document.getElementById('emailError').classList.remove('hidden');
-        isValid = false;
+    function isValidEmail(email) {
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailPattern.test(email);
     }
     
-    // Validate phone number
-    if (!validatePhone(phone)) {
-        document.getElementById('phoneError').classList.remove('hidden');
-        isValid = false;
+    function isValidPhone(phone) {
+        return phone.trim().length >= 7; // Adjust the length requirement based on your need
     }
     
-    if (isValid) {
-        // If valid, show success popup
-        document.getElementById('successPopup').classList.remove('hidden');
+    function showSuccessPopup() {
+        successPopup.classList.remove('hidden');
     }
     
-    return false;
-}
-function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-}
-function validatePhone(phone) {
-    const re = /^\d{10}$/;
-    return re.test(phone);
-}
-function clearErrors() {
-    document.getElementById('firstNameError').classList.add('hidden');
-    document.getElementById('lastNameError').classList.add('hidden');
-    document.getElementById('emailError').classList.add('hidden');
-    document.getElementById('phoneError').classList.add('hidden');
-}
-function closePopup() {
-    document.getElementById('successPopup').classList.add('hidden');
-    document.getElementById('signupForm').reset(); // Reset form after successful submission
-}
+    function closePopup() {
+        successPopup.classList.add('hidden');
+    }
+    
+    // Attach the closePopup function to the close button's click event only
+    closeBtn.addEventListener('click', closePopup);
+
+    // Prevent the popup from closing when clicking anywhere else inside it
+    successPopup.addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
+});
+
+
 
 // ==================== CURRENT YEAR========================
 const currentYear = new Date().getFullYear();
@@ -269,4 +302,24 @@ startTimer();
                     }
                 });
             });
-        });
+  });
+        
+  const flagImages = {
+    'canada': './assets/images/svg/canada_flag.svg',
+    'uk': './assets/images/svg/uk-flag.svg',
+    'in': './assets/images/svg/india-flag.svg',
+    // Add more country codes and image paths here
+};
+
+// Function to update the flag image based on the selected country code
+document.getElementById('countryCode').addEventListener('change', function() {
+    const selectedOption = this.value;
+    const flagImage = document.getElementById('flag');
+
+    // Update the flag image source based on the selected country code
+    if (flagImages[selectedOption]) {
+        flagImage.src = flagImages[selectedOption];
+    } else {
+        flagImage.src = './assets/images/svg/canada_flag.svg'; // Fallback image if code not found
+    }
+});
