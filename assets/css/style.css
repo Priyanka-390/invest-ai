@@ -39,13 +39,14 @@ input[type="number"] {
 }
 
 .panel {
-  max-height: 0;
+  display: grid;
+  grid-template-rows: 0fr;
   overflow: hidden;
   transition: 300ms linear, opacity 0.3s linear;
 }
 
 .panel.show {
-  max-height: 120px;
+   grid-template-rows: 1fr;
   transition:  300ms linear, opacity 0.3s linear;
 }
 
